@@ -1,4 +1,7 @@
 # ❗ This is cloned repository!
+# 📢 This is cloned repo!
+
+This repository is cloned from [deepinsight/insightface](https://github.com/deepinsight/insightface) and modified for research.
 
 This repository is cloned from [deepinsight/insightface](https://github.com/deepinsight/insightface)
 
@@ -96,6 +99,9 @@ Commonly used network backbones are included in most of the methods, such as IRe
 The training data includes, but not limited to the cleaned MS1M, VGG2 and CASIA-Webface datasets, which were already packed in MXNet binary format. Please [dataset](recognition/_datasets_) page for detail.
 
 ### Evaluation
+| Method  | LFW(%) | CFP-FP(%) | AgeDB-30(%) |
+| ------- | ------ | --------- | ----------- |
+|  Ours   | 99.80+ | 98.0+     | 98.20+      |
 
 We provide standard IJB and Megaface evaluation pipelines in [evaluation](recognition/_evaluation_)
 
@@ -123,6 +129,17 @@ We provide standard IJB and Megaface evaluation pipelines in [evaluation](recogn
 <div align="left">
   <img src="https://insightface.ai/assets/img/github/11513D05.jpg" width="640"/>
 </div>
+  RetinaFace is a practical single-stage [SOTA](http://shuoyang1213.me/WIDERFACE/WiderFace_Results.html) face detector which is initially introduced in [arXiv technical report](https://arxiv.org/abs/1905.00641) and then accepted by [CVPR 2020](https://openaccess.thecvf.com/content_CVPR_2020/html/Deng_RetinaFace_Single-Shot_Multi-Level_Face_Localisation_in_the_Wild_CVPR_2020_paper.html). We provide training code, training dataset, pretrained models and evaluation scripts. 
+
+  ![demoimg1](https://github.com/deepinsight/insightface/blob/master/resources/11513D05.jpg)
+
+  Please check [RetinaFace](https://github.com/deepinsight/insightface/tree/master/detection/RetinaFace) for detail.
+
+### RetinaFaceAntiCov 
+
+  RetinaFaceAntiCov is an experimental module to identify face boxes with masks. Please check [RetinaFaceAntiCov](https://github.com/deepinsight/insightface/tree/master/detection/RetinaFaceAntiCov) for detail.
+
+  ![demoimg1](https://github.com/deepinsight/insightface/blob/master/resources/cov_test.jpg)
 
 In this module, we provide training data with annotation, network settings and loss designs for face detection training, evaluation and inference.
 
@@ -138,6 +155,15 @@ The supported methods are as follows:
 
 
 ## Face Alignment
+  Please check the [Menpo](https://github.com/jiankangdeng/MenpoBenchmark) Benchmark and our [Dense U-Net](https://github.com/deepinsight/insightface/tree/master/alignment/heatmapReg) for detail. We also provide other network settings such as classic hourglass. You can find all of training code, training dataset and evaluation scripts there.
+
+### CoordinateReg
+
+  On the other hand, in contrast to heatmap based approaches, we provide some lightweight facial landmark models with fast coordinate regression. The input of these models is loose cropped face image while the output is the direct landmark coordinates. See detail at [alignment-coordinateReg](https://github.com/deepinsight/insightface/tree/master/alignment/coordinateReg). Now only pretrained models available.
+
+ <div align="center">
+	<img src="https://github.com/nttstar/insightface-resources/blob/master/alignment/images/t1_out.jpg" alt="imagevis" width="800">
+</div>
 
 ### Introduction
 
