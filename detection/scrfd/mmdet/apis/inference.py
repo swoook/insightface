@@ -185,3 +185,14 @@ def show_result_pyplot(model,
     plt.title(title)
     plt.tight_layout()
     plt.show(block=block)
+
+
+def save_result_img(model,
+                    img,
+                    result,
+                    score_thr=0.3,
+                    filepath='./res.jpg'):
+    if hasattr(model, 'module'):
+        model = model.module
+    img = model.show_result(img, result, score_thr=score_thr, show=False)
+    mmcv.imwrite(img, filepath)
