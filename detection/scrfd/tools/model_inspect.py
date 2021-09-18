@@ -31,15 +31,15 @@ class Inspector():
     @torch.no_grad()
     def measure_fps(self):
         num_repet = 10000
-        input_data = torch.Tensor(1, 3, 640, 640).to(self.device)
+        input_data = torch.rand(1, 3, 480, 640).to(self.device)
         print("start warm up")
-        for _ in range(num_repet): self.model.feature_test(input_data)
+        for _ in range(int(num_repet/10)): self.model.feature_test(input_data)
         print("warm up done")
 
         if next(self.model.parameters()).is_cuda: torch.cuda.synchronize()
         t0 = time.perf_counter()
         for _ in range(num_repet):
-            self.model.feature_test(input_data)
+            with torch.no_grad(): self.model.feature_test(input_data)
         if next(self.model.parameters()).is_cuda: torch.cuda.synchronize()
         t1 = time.perf_counter()
         inference_time = (t1 - t0) / num_repet
